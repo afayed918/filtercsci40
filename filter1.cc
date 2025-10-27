@@ -1,4 +1,4 @@
-//Student 1 Name:
+//Student 1 Name: Adam Fayed
 #include <vector>
 #include <cstdlib>
 #include <cmath>
@@ -27,8 +27,8 @@ void filter1(vector<vector<vector<int>>> &vec) {
 	size_t colors = vec.at(0).at(0).size();
 	if (!colors) exit(1);
 
-	make_rect(vec, 50, 200, 50, 60); 
-	make_rect(vec, 50, 200, 100, 110); 
+	//make_rect(vec, 50, 200, 50, 60); 
+	//make_rect(vec, 50, 200, 100, 110); 
 
 	//Do the image filtering on every row and column in this image...
 	//Warning: I and J are actuall backwards, I hope you read this comment
@@ -81,19 +81,21 @@ void filter1(vector<vector<vector<int>>> &vec) {
 
 
 			//Greyscale
-			if (i < rows/2) {
-				vec.at(i).at(j).at(RED) *= 1.2;
-				vec.at(i).at(j).at(GREEN) *= 0.9;
-				vec.at(i).at(j).at(BLUE) *= 1.1;
+			if (j > cols/2) {
+				/*
+				vec.at(i).at(j).at(RED) *= 9.3;
+				vec.at(i).at(j).at(GREEN) *= 7.6;
+				vec.at(i).at(j).at(BLUE) *= 1.58;
 			}
 			else {
-				int avg = (r+g+b) / 3;
-				vec.at(i).at(j).at(RED) = avg;
-				vec.at(i).at(j).at(GREEN) = avg;
-				vec.at(i).at(j).at(BLUE) = avg;
+				*/
+				//int avg = (r+g+b) / 3;
+				vec.at(i).at(j).at(RED) *= 1.10;
+				vec.at(i).at(j).at(GREEN) *= 0.3;
+				vec.at(i).at(j).at(BLUE) *= 2.29;
 			}
 
-
+			
 			//Add a rainbow pattern 
 			/*
 			if (r > 120 and g < 180) {
@@ -102,7 +104,7 @@ void filter1(vector<vector<vector<int>>> &vec) {
 				vec[i][j][GREEN] = avg + 128*sin(i/50.0);;
 				vec[i][j][BLUE] = avg + 128*cos(i/40.0 + 3);
 			}
-			*/
+			*/	
 
 			//DEMO CODE BEGIN
 			//The demo code here will either sepia tone or yellowize the image, depending on which one you comment out

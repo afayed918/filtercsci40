@@ -1,11 +1,11 @@
 //==================================================================================
 //Write your names here, and explain what each student's code does
-//Student 1 Name: 
+//Student 1 Name: Adam Fayed 
 //Student 1's Filter Description: 
 //Student 2 Name: 
 //Student 2's Filter Description: 
-//Student 3 Name: 
-//Student 3's Filter Description: 
+//Student 3 Name: N/A 
+//Student 3's Filter Description: N/A 
 //==================================================================================
 //You don't need to modify this file below this line, unless you, like, want to
 
