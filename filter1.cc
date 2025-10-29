@@ -28,8 +28,30 @@ void filter1(vector<vector<vector<int>>> &vec) {
 	if (!colors) exit(1);
 
 	make_rect(vec, 10, 30, 700, 720); 
-	//make_rect(vec, 50, 200, 100, 110); 
+	//make_rect(vec, 50, 200, 100, 110);
 
+	make_rect(vec, 11, 15, 10, 10); //#
+	make_rect(vec, 11, 15, 13, 13);
+	make_rect(vec, 12, 12, 9, 14);
+	make_rect(vec, 14, 14, 9, 14);
+
+
+	make_rect(vec, 11, 15, 16, 16); //R
+	make_rect(vec, 11, 12, 18, 18);
+	make_rect(vec, 14, 15, 18, 18);
+	make_rect(vec, 11, 11, 17, 17);
+	make_rect(vec, 13, 13, 17, 17);
+
+	make_rect(vec, 11, 15, 20, 20); //E
+	make_rect(vec, 11, 11, 21, 22); //E
+	make_rect(vec, 13, 13, 21, 22); //E
+	make_rect(vec, 15, 15, 21, 22); //E
+
+	make_rect(vec, 11, 14, 24, 24); //V
+	make_rect(vec, 11, 14, 26, 26); //V
+	make_rect(vec, 15, 15, 25, 25); //V
+
+	
 	//Do the image filtering on every row and column in this image...
 	//Warning: I and J are actuall backwards, I hope you read this comment
 	for (int i = 0; i < rows; i++) {
