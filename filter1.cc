@@ -9,7 +9,7 @@ const int RED = 0, GREEN = 1, BLUE = 2;
 void make_rect(vector<vector<vector<int>>> &vec, int x_min, int x_max, int y_min, int y_max) {
 	for (int i = y_min; i <= y_max; i++) {
 		for (int j = x_min; j <= x_max; j++) {
-			vec[i][j][RED] = 0;
+			vec[i][j][RED] = 255;
 			vec[i][j][GREEN] = 0;
 			vec[i][j][BLUE] = 0;
 		}
@@ -27,7 +27,7 @@ void filter1(vector<vector<vector<int>>> &vec) {
 	size_t colors = vec.at(0).at(0).size();
 	if (!colors) exit(1);
 
-	//make_rect(vec, 50, 200, 50, 60); 
+	make_rect(vec, 10, 30, 700, 720); 
 	//make_rect(vec, 50, 200, 100, 110); 
 
 	//Do the image filtering on every row and column in this image...
@@ -75,26 +75,36 @@ void filter1(vector<vector<vector<int>>> &vec) {
 			}
 
 			// Double the brightness of every pixeli
-			if (j < cols) {
+	/*		if (j < cols) {
 			vec.at(i).at(j).at(RED) *= 0.5;
 			vec.at(i).at(j).at(GREEN) *= 0.5;
 			vec.at(i).at(j).at(BLUE) *= 0.5;
 			
-		}
+		} */
 
 			//Greyscale
-			if (j > cols) {
-				/*
-				vec.at(i).at(j).at(RED) *= 9.3;
-				vec.at(i).at(j).at(GREEN) *= 7.6;
-				vec.at(i).at(j).at(BLUE) *= 1.58;
-			}
-			else {
-				*/
-				//int avg = (r+g+b) / 3;
-				vec.at(i).at(j).at(RED) *= 0.80;
+			if (j >= cols / 2 && i > rows / 2) { //BOTTOM RIGHT
+				
+				vec.at(i).at(j).at(RED) *= 1.4;
 				vec.at(i).at(j).at(GREEN) *= 0.90;
-				vec.at(i).at(j).at(BLUE) *= 1.29;
+				vec.at(i).at(j).at(BLUE) *= 2.2;
+			}
+			if (j > cols / 2 && i < rows / 2) { //BOTTOM LEFT
+				
+				//int avg = (r+g+b) / 3;
+				vec.at(i).at(j).at(RED) *= 0.8;
+				vec.at(i).at(j).at(GREEN) *= 2.0;
+				vec.at(i).at(j).at(BLUE) *= 1.3;
+			}
+			if (j < cols / 2 && i < rows / 2) { //TOP LEFT
+				vec.at(i).at(j).at(RED) *= 0.45;
+				vec.at(i).at(j).at(GREEN) *= 1.9;
+				vec.at(i).at(j).at(BLUE) *= 2.2;	
+			}
+			if (j < cols / 2 && i > rows / 2) { //TOP RIGHT
+				vec.at(i).at(j).at(RED) *= 2.0;
+				vec.at(i).at(j).at(GREEN) *= 1.1;
+				vec.at(i).at(j).at(BLUE) *= 0.8;	
 			}
 
 			
