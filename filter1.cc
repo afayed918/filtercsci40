@@ -40,13 +40,14 @@ void filter1(vector<vector<vector<int>>> &vec) {
 			int b = vec[i][j][BLUE];
 
 
-			/*
+			
 			//Halftone - every other block of 5x5 pixels is black
-			if ((i/5 + j/5) % 2) {
+		/*	if ((i/5 + j/5) %2) {
 				vec.at(i).at(j).at(RED) = 0;
 				vec.at(i).at(j).at(GREEN) = 0;
 				vec.at(i).at(j).at(BLUE) = 0;
-			}
+			} */
+			/*
 			else {
 				//Color Rotate
 				vec.at(i).at(j).at(RED) = g;
@@ -73,15 +74,16 @@ void filter1(vector<vector<vector<int>>> &vec) {
 				*/
 			}
 
-			/* Double the brightness of every pixel
-			vec.at(i).at(j).at(RED) *= 2;
-			vec.at(i).at(j).at(GREEN) *= 2;
-			vec.at(i).at(j).at(BLUE) *= 2;
-			*/
-
+			// Double the brightness of every pixeli
+			if (j < cols) {
+			vec.at(i).at(j).at(RED) *= 0.5;
+			vec.at(i).at(j).at(GREEN) *= 0.5;
+			vec.at(i).at(j).at(BLUE) *= 0.5;
+			
+		}
 
 			//Greyscale
-			if (j > cols/2) {
+			if (j > cols) {
 				/*
 				vec.at(i).at(j).at(RED) *= 9.3;
 				vec.at(i).at(j).at(GREEN) *= 7.6;
@@ -90,9 +92,9 @@ void filter1(vector<vector<vector<int>>> &vec) {
 			else {
 				*/
 				//int avg = (r+g+b) / 3;
-				vec.at(i).at(j).at(RED) *= 1.10;
-				vec.at(i).at(j).at(GREEN) *= 0.3;
-				vec.at(i).at(j).at(BLUE) *= 2.29;
+				vec.at(i).at(j).at(RED) *= 0.80;
+				vec.at(i).at(j).at(GREEN) *= 0.90;
+				vec.at(i).at(j).at(BLUE) *= 1.29;
 			}
 
 			
